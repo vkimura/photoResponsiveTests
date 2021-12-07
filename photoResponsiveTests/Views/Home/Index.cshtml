@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="image1.jpg" alt="image 1">
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="image2.jpg" alt="image 2">
+
+        <div id="img-tag-simple" style="">
+            <h2>img tag simple test</h2>
+            <img style="width: 100%; height: 100%;" loading="lazy" srcset="https://via.placeholder.com/1800x1040.webp?text=imgsimple-1800x1040+webp 1800w,
+                https://via.placeholder.com/1500x844.webp?text=imgsimple-1500x844+webp 1799w,
+                https://via.placeholder.com/1170x658.webp?text=imgsimple-1170x658+webp 1499w,
+                https://via.placeholder.com/970x545.webp?text=imgsimple-970x545+webp 1169w,
+                https://via.placeholder.com/750x562.webp?text=imgsimple-750x562+webp 969w,
+                https://via.placeholder.com/500x360.webp?text=imgsimple-500x360_webp 749w,
+                https://via.placeholder.com/450x338.webp?text=imgsimple-450x338_webp 499w,
+                https://via.placeholder.com/320x240.webp?text=imgsimple-320x240_webp 449w"
+                 sizes="100vw"
+                 src="https://via.placeholder.com/1500x844.jpg?text=imgsimple-1500x844+jpg" />
+        </div>
+
+        <div style="display: grid; -ms-align-content: center; -webkit-align-content: center; align-content: center; justify-content: center;">
+            <h2>img1 tag image</h2>
+
+            <img loading="lazy" style="height: 100%; width: 100%; object-fit: contain;"
+                 sizes="
+                    90vw,
+                    (min-width: 1800px) 90vw,
+                    (min-width: 1499px) 90vw,
+                    (min-width: 1169px) 90vw,
+                    (min-width: 969px) 90vw,
+                    (min-width: 749px) 100vw,
+                    (min-width: 499px) 100vw,
+                    (min-width: 449px) 100vw,
+                    (min-width: 200px) 90vw
+             "
+                 srcset="
+                https://via.placeholder.com/1800x1040.webp?text=img1-1800x1040+webp 1800w,
+                https://via.placeholder.com/1500x844.webp?text=img1-1500x844+webp 1650w,
+                https://via.placeholder.com/1170x658.webp?text=img1-1170x658+webp 1300w,
+                https://via.placeholder.com/970x545.webp?text=img1-970x545+webp 1000w,
+                https://via.placeholder.com/750x562.webp?text=img1-750x562+webp 800w,
+                https://via.placeholder.com/500x360.webp?text=img1-500x360_webp 550w,
+                https://via.placeholder.com/450x338.webp?text=img1-450x338_webp 490w,
+                https://via.placeholder.com/320x240.webp?text=img1-320x240_webp 400w
+         " />
+        </div>
+
+        <div style="display: grid; -ms-align-content: center; -webkit-align-content: center; align-content: center; justify-content: center;">
+            <h2>Picture tag test1</h2>
+            @*Note - When setting the media query here and if using max-width (as opposed to min-width) then use the lowest valued dimensions first in the list of sources. If using the min-width first then set the highest valued width first in the list (see <img> tag example below <h2>Image</h2>. *@
+            <picture style="height: 100%;">
+                <!--webp media queries-->
+                <source loading="lazy" media="(min-width: 1800px)" srcset="https://via.placeholder.com/1800x1040.webp?text=test1-1800x1040+webp 1800w" width="1800" sizes="(min-width:1800px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(min-width: 1499px)" srcset="https://via.placeholder.com/1500x844.webp?text=test1-1400x844+webp 1500w" width="1500" sizes="(min-width:1499px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(min-width: 1169px)" srcset="https://via.placeholder.com/1170x658.webp?text=test1-1170x658+webp 1170w" width="1170" sizes="(min-width:1169px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(min-width: 969px)" srcset="https://via.placeholder.com/970x545.webp?text=test1-970x545+webp 970w" width="970" sizes="(min-width:969px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(min-width: 749px)" srcset="https://via.placeholder.com/750x562.webp?text=test1-750x562+webp 750w" width="750" sizes="(min-width:749px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(min-width: 499px)" style="object-fit: contain;" srcset="https://via.placeholder.com/500x360.webp?text=test1-500x360+webp 500w" width="500" sizes="(min-width:499px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(min-width: 449px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/450x338.webp?text=test1-450x338+webp 450w" width="450" sizes="(min-width:400px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(max-width: 399px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/320x240.webp?text=test1-320x240+webp 320w" width="320" sizes="(max-width: 399px) 90vw" type="image/webp" />
+
+                <!--jpg media queries-->
+                <source loading="lazy" media="(min-width: 1800px)" srcset="https://via.placeholder.com/1800x1040.jpg?text=test1-1800x1040+jpg 1800w" width="1800" sizes="(min-width:1800px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(min-width: 1499px)" srcset="https://via.placeholder.com/1500x844.jpg?text=test1-1400x844+jpg 1500w" width="1500" sizes="(min-width:1499px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(min-width: 1169px)" srcset="https://via.placeholder.com/1170x658.jpg?text=test1-1170x658+jpg 1170w" width="1170" sizes="(min-width:1169px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(min-width: 969px)" srcset="https://via.placeholder.com/970x545.jpg?text=test1-970x545+jpg 970w" width="970" sizes="(min-width:969px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(min-width: 749px)" srcset="https://via.placeholder.com/750x562.jpg?text=test1-750x562+jpg 750w" width="750" sizes="(min-width:749px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(min-width: 499px)" style="object-fit: contain;" srcset="https://via.placeholder.com/500x360.jpg?text=test1-500x360+jpg 500w" width="500" sizes="(min-width:499px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(min-width: 449px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/450x338.jpg?text=test1-450x338+jpg 450w" width="450" sizes="(min-width:400px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(max-width: 399px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/320x240.jpg?text=test1-320x240+jpg 320w" width="320" sizes="(max-width: 399px) 90vw" type="image/jpeg" />
+
+                @*TODO: need to create media queries for the jpg format for safari and other devices.
+                See the mobile devices. Also, need to check if I can use ngrok or set up Azure devops website. (vk Thu 7 Oct 2021 16:35) *@
+                @*<img src="https://via.placeholder.com/970x545.jpg?text=test1-ASP.NET"
+                alt="picture_test1 970x454"
+                style="object-fit: contain;"
+                loading="lazy" width="970" height="545" />*@
+
+                <img style="height: 100%; width: 100%; object-fit: contain;" loading="lazy" alt="picture_test1 970x454"
+                     sizes="
+                    (min-width: 200px) 90vw,
+                    (min-width: 449px) 90vw,
+                    (min-width: 499px) 90vw,
+                    (min-width: 749px) 90vw,
+                    (min-width: 969px) 90vw,
+                    (min-width: 1169px) 90vw,
+                    (min-width: 1499px) 90vw,
+                    (min-width: 1800px) 90vw,
+                    90vw
+             "
+                     srcset="https://via.placeholder.com/320x240.jpg?text=imgtest1-320x240+jpg 320w,
+                https://via.placeholder.com/450x338.jpg?text=imgtest1-450x338+jpg 450w,
+                https://via.placeholder.com/500x360.jpg?text=imgtest1-500x360+jpg 500w,
+                https://via.placeholder.com/750x562.jpg?text=imgtest1-750x562+jpg 750w,
+                https://via.placeholder.com/970x545.jpg?text=imgtest1-970x545+jpg 970w,
+                https://via.placeholder.com/1170x658.jpg?text=imgtest1-1170x658+jpg 1170w,
+                https://via.placeholder.com/1500x844.jpg?text=imgtest1-1500x844+jpg 15000w,
+                https://via.placeholder.com/1800x1040.jpg?text=imgtest1-1800x1040+jpg 1800w
+         " />
+            </picture>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    let divBox = document.querySelector('#img-tag-simple');
+    let width = divBox.clientWidth;
+    let height = divBox.clientHeight;
+    console.log(divBox);
+    console.log("width: " + width + " height: " + height);
+
+    document.getElementById("#img-tag-simple").style.width = width;
+
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+    }
+
+    window.onload = init;
+</script>

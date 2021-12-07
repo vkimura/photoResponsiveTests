@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "photoResponsiveTests", "photoResponsiveTests\photoResponsiveTests.csproj", "{F2D35FA9-742A-439F-9C7B-2B78F5EACACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "photoResponsiveTests.Tests", "photoResponsiveTests.Tests\photoResponsiveTests.Tests.csproj", "{4235D5AB-CBD7-4A15-8AA5-27AB3C1F2634}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2D35FA9-742A-439F-9C7B-2B78F5EACACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D35FA9-742A-439F-9C7B-2B78F5EACACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D35FA9-742A-439F-9C7B-2B78F5EACACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D35FA9-742A-439F-9C7B-2B78F5EACACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4235D5AB-CBD7-4A15-8AA5-27AB3C1F2634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4235D5AB-CBD7-4A15-8AA5-27AB3C1F2634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4235D5AB-CBD7-4A15-8AA5-27AB3C1F2634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4235D5AB-CBD7-4A15-8AA5-27AB3C1F2634}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F370EBA-F70D-425B-91BD-D1661BDB9DC5}
+	EndGlobalSection
+EndGlobal
