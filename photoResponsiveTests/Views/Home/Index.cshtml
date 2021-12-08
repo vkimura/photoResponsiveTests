@@ -3,17 +3,77 @@
 }
 
 
+
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
+
+    <h1 class="content-over-hero-img">ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p class="content-over-hero-img"><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+    @*<picture class="hero-img">
+        <source media="(min-width:1200px)" srcset="https://i.picsum.photos/id/1002/4312/2868.jpg?hmac=5LlLE-NY9oMnmIQp7ms6IfdvSUQOzP_O3DPMWmyNxwo">
+        <source media="(min-width:500px)" srcset="https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68">
+        <img src="https://i.picsum.photos/id/100/2500/1656.jpg?hmac=gWyN-7ZB32rkAjMhKXQgdHOIBRHyTSgzuOK6U0vXb1w">
+    </picture>*@
+
+    <picture class="hero-img" style="height: 100%;">
+        <!--webp media queries-->
+        <source loading="lazy" media="(min-width: 1800px)" srcset="https://via.placeholder.com/1800x1040.webp?text=jumbo-1800x1040+webp 1800w" width="1800" sizes="(min-width:1800px) 90vw" type="image/webp" />
+        <source loading="lazy" media="(min-width: 1499px)" srcset="https://via.placeholder.com/1500x844.webp?text=jumbo-1400x844+webp 1500w" width="1500" sizes="(min-width:1499px) 90vw" type="image/webp" />
+        <source loading="lazy" media="(min-width: 1169px)" srcset="https://via.placeholder.com/1170x658.webp?text=jumbo-1170x658+webp 1170w" width="1170" sizes="(min-width:1169px) 90vw" type="image/webp" />
+        <source loading="lazy" media="(min-width: 969px)" srcset="https://via.placeholder.com/970x545.webp?text=jumbo-970x545+webp 970w" width="970" sizes="(min-width:969px) 90vw" type="image/webp" />
+        <source loading="lazy" media="(min-width: 749px)" srcset="https://via.placeholder.com/750x562.webp?text=jumbo-750x562+webp 750w" width="750" sizes="(min-width:749px) 90vw" type="image/webp" />
+        <source loading="lazy" media="(min-width: 499px)" srcset="https://via.placeholder.com/500x360.webp?text=jumbo-500x360+webp 500w" width="500" sizes="(min-width:499px) 90vw" type="image/webp" />
+        <source loading="lazy" media="(min-width: 449px)" srcset="https://via.placeholder.com/450x338.webp?text=jumbo-450x338+webp 450w" width="450" sizes="(min-width:400px) 90vw" type="image/webp" />
+        <source loading="lazy" media="(max-width: 399px)" srcset="https://via.placeholder.com/320x240.webp?text=jumbo-320x240+webp 320w" width="320" sizes="(max-width: 399px) 90vw" type="image/webp" />
+
+        <!--jpg media queries-->
+        <source loading="lazy" media="(min-width: 1800px)" srcset="https://via.placeholder.com/1800x1040.jpg?text=jumbo-1800x1040+jpg 1800w" width="1800" sizes="(min-width:1800px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(min-width: 1499px)" srcset="https://via.placeholder.com/1500x844.jpg?text=jumbo-1400x844+jpg 1500w" width="1500" sizes="(min-width:1499px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(min-width: 1169px)" srcset="https://via.placeholder.com/1170x658.jpg?text=jumbo-1170x658+jpg 1170w" width="1170" sizes="(min-width:1169px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(min-width: 969px)" srcset="https://via.placeholder.com/970x545.jpg?text=jumbo-970x545+jpg 970w" width="970" sizes="(min-width:969px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(min-width: 749px)" srcset="https://via.placeholder.com/750x562.jpg?text=jumbo-750x562+jpg 750w" width="750" sizes="(min-width:749px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(min-width: 499px)" srcset="https://via.placeholder.com/500x360.jpg?text=jumbo-500x360+jpg 500w" width="500" sizes="(min-width:499px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(min-width: 449px)" srcset="https://via.placeholder.com/450x338.jpg?text=jumbo-450x338+jpg 450w" width="450" sizes="(min-width:400px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(max-width: 399px)" srcset="https://via.placeholder.com/320x240.jpg?text=jumbo-320x240+jpg 320w" width="320" sizes="(max-width: 399px) 90vw" type="image/jpeg" />
+        <source loading="lazy" media="(max-width: 399px)" srcset="https://via.placeholder.com/320x240.jpg?text=jumbo-320x240+jpg 320w" width="320" sizes="(max-width: 399px) 90vw" type="image/jpeg" />
+
+        @*TODO: need to create media queries for the jpg format for safari and other devices.
+            See the mobile devices. Also, need to check if I can use ngrok or set up Azure devops website. (vk Thu 7 Oct 2021 16:35) *@
+        @*<img src="https://via.placeholder.com/970x545.jpg?text=test1-ASP.NET"
+            alt="picture_test1 970x454"
+            style="object-fit: contain;"
+            loading="lazy" width="970" height="545" />*@
+        @*object-fit: contain; will contain the aspect ratio image within the height and width properties. object-fit: cover; acts similar to background-image:*@
+        <img style="height: 100%; width: 100%; object-fit: cover;" alt="picture_test1 970x454"
+             sizes="
+                    (min-width: 200px) 90vw,
+                    (min-width: 449px) 90vw,
+                    (min-width: 499px) 90vw,
+                    (min-width: 749px) 90vw,
+                    (min-width: 969px) 90vw,
+                    (min-width: 1169px) 90vw,
+                    (min-width: 1499px) 90vw,
+                    (min-width: 1800px) 90vw,
+                    90vw
+             "
+             srcset="https://via.placeholder.com/320x240.jpg?text=jumbo-320x240+jpg 320w,
+                https://via.placeholder.com/450x338.jpg?text=jumbo-450x338+jpg 450w,
+                https://via.placeholder.com/500x360.jpg?text=jumbo-500x360+jpg 500w,
+                https://via.placeholder.com/750x562.jpg?text=jumbo-750x562+jpg 750w,
+                https://via.placeholder.com/970x545.jpg?text=jumbo-970x545+jpg 970w,
+                https://via.placeholder.com/1170x658.jpg?text=jumbo-1170x658+jpg 1170w,
+                https://via.placeholder.com/1500x844.jpg?text=jumbo-1500x844+jpg 15000w,
+                https://via.placeholder.com/1800x1040.jpg?text=jumbo-1800x1040+jpg 1800w
+         " />
+    </picture>
 </div>
 
 <div class="row">
     <div class="col-md-12">
 
-        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="image1.jpg" alt="image 1">
-        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="image2.jpg" alt="image 2">
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="image1.jpg" class="base64" alt="image 1">
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="image2.jpg" class="base64" alt="image 2">
 
         <div id="img-tag-simple" style="">
             <h2>img tag simple test</h2>
@@ -66,7 +126,7 @@
                 <source loading="lazy" media="(min-width: 1169px)" srcset="https://via.placeholder.com/1170x658.webp?text=test1-1170x658+webp 1170w" width="1170" sizes="(min-width:1169px) 90vw" type="image/webp" />
                 <source loading="lazy" media="(min-width: 969px)" srcset="https://via.placeholder.com/970x545.webp?text=test1-970x545+webp 970w" width="970" sizes="(min-width:969px) 90vw" type="image/webp" />
                 <source loading="lazy" media="(min-width: 749px)" srcset="https://via.placeholder.com/750x562.webp?text=test1-750x562+webp 750w" width="750" sizes="(min-width:749px) 90vw" type="image/webp" />
-                <source loading="lazy" media="(min-width: 499px)" style="object-fit: contain;" srcset="https://via.placeholder.com/500x360.webp?text=test1-500x360+webp 500w" width="500" sizes="(min-width:499px) 90vw" type="image/webp" />
+                <source loading="lazy" media="(min-width: 499px)" srcset="https://via.placeholder.com/500x360.webp?text=test1-500x360+webp 500w" width="500" sizes="(min-width:499px) 90vw" type="image/webp" />
                 <source loading="lazy" media="(min-width: 449px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/450x338.webp?text=test1-450x338+webp 450w" width="450" sizes="(min-width:400px) 90vw" type="image/webp" />
                 <source loading="lazy" media="(max-width: 399px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/320x240.webp?text=test1-320x240+webp 320w" width="320" sizes="(max-width: 399px) 90vw" type="image/webp" />
 
@@ -76,7 +136,7 @@
                 <source loading="lazy" media="(min-width: 1169px)" srcset="https://via.placeholder.com/1170x658.jpg?text=test1-1170x658+jpg 1170w" width="1170" sizes="(min-width:1169px) 90vw" type="image/jpeg" />
                 <source loading="lazy" media="(min-width: 969px)" srcset="https://via.placeholder.com/970x545.jpg?text=test1-970x545+jpg 970w" width="970" sizes="(min-width:969px) 90vw" type="image/jpeg" />
                 <source loading="lazy" media="(min-width: 749px)" srcset="https://via.placeholder.com/750x562.jpg?text=test1-750x562+jpg 750w" width="750" sizes="(min-width:749px) 90vw" type="image/jpeg" />
-                <source loading="lazy" media="(min-width: 499px)" style="object-fit: contain;" srcset="https://via.placeholder.com/500x360.jpg?text=test1-500x360+jpg 500w" width="500" sizes="(min-width:499px) 90vw" type="image/jpeg" />
+                <source loading="lazy" media="(min-width: 499px)" srcset="https://via.placeholder.com/500x360.jpg?text=test1-500x360+jpg 500w" width="500" sizes="(min-width:499px) 90vw" type="image/jpeg" />
                 <source loading="lazy" media="(min-width: 449px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/450x338.jpg?text=test1-450x338+jpg 450w" width="450" sizes="(min-width:400px) 90vw" type="image/jpeg" />
                 <source loading="lazy" media="(max-width: 399px)" style=" object-fit: contain;" srcset="https://via.placeholder.com/320x240.jpg?text=test1-320x240+jpg 320w" width="320" sizes="(max-width: 399px) 90vw" type="image/jpeg" />
 

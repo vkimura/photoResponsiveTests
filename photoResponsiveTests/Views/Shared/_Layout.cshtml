@@ -4,6 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+@*picture tag preload jumbo*@
+    <link rel="preload" as="image" href="https://via.placeholder.com/1800x1040.webp?text=jumbo-1800x1040+webp" media="(min-width: 1800px)" />
+    <link rel="preload" as="image" href="https://via.placeholder.com/1500x844.webp?text=jumbo-1400x844+webp " media="(min-width: 1499px) and (max-width: 1799px)" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/1170x658.webp?text=jumbo-1170x658+webp" media="(min-width: 1169px) and (max-width: 1498px" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/970x545.webp?text=jumbo-970x545+webp" media="(min-width: 969px) and (max-width: 1168px" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/750x562.webp?text=jumbo-750x562+webp" media="(min-width: 749px) and (max-width: 968px" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/500x360.webp?text=jumbo-500x360+webp" media="(min-width: 499px) and (max-width: 748px" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/450x338.webp?text=jumbo-450x338+webp" media="(min-width: 400px) and (max-width: 498px" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/320x240.webp?text=jumbo-320x240+webp" media="(max-width: 399px)" />
+
+@*picture tag preload in body*@
     <link rel="preload" as="image" href="https://via.placeholder.com/1800x1040.webp?text=test1-1800x1040+webp" media="(min-width: 1800px)" />
     <link rel="preload" as="image" href="https://via.placeholder.com/1500x844.webp?text=test1-1400x844+webp " media="(min-width: 1499px) and (max-width: 1799px)" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/1170x658.webp?text=test1-1170x658+webp" media="(min-width: 1169px) and (max-width: 1498px" />
@@ -12,6 +23,49 @@
     <link rel="preload" as="image" href=" https://via.placeholder.com/500x360.webp?text=test1-500x360+webp" media="(min-width: 499px) and (max-width: 748px" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/450x338.webp?text=test1-450x338+webp" media="(min-width: 400px) and (max-width: 498px" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/320x240.webp?text=test1-320x240+webp" media="(max-width: 399px)" />
+
+    <style>
+        .jumbotron {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .content-over-hero-img, .lead {
+            position: relative;
+            z-index: 10;
+            margin: 0;
+            font-size: 8rem;
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        .hero-img, .hero-img img {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .base64 {
+            width: 10px;
+            height: 10px;
+        }
+    </style>
 
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
