@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <title>Colleg&#232; CDI</title>
+    <link rel="icon" href="/utility/files/panel/style/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width" />
+    <link href="/utility/files/panel/style/regular.css" rel="stylesheet" />
+    <link href="/utility/files/panel/style/shared.css" rel="stylesheet" />
+    <link href="/utility/files/libs/jquery/jquery-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <script src="/utility/files/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="/utility/files/CKEditor/ckeditor.js"></script>
+    <script src="/utility/files/CKEditor/ck-editor.js"></script>
+    <script src="/Utility/Files/CKEditor/adapters/jquery.js"></script>
+
+
+    <style>
+        header menu a.selected,
+        header menu a.selected i,
+        header menu a:hover i,
+        header menu a:hover,
+        .data-list ul li a:hover * {
+            color: #f37637 !important;
+        }
+        
+        input[name="misc"] {
+            width: 20vw !important;
+        }
+        
+        .button>a {
+            white-space: nowrap !important;
+        }
+        
+        table.data-grid>tbody>tr>td {
+            border-left: 1px dashed #ddd !important;
+        }
+        
+        * {
+            border-color: #BDC3C7 !important;
+        }
+        
+        *>input,
+        *>select {
+            border: 2px solid #e5e7e9 !important;
+            border-radius: 4px !important;
+            background-color: #d3ecfb !important;
+            font-size: 13px !important;
+            padding-left: 5px !important;
+            box-shadow: 0px 0px 9px -4px gray;
+        }
+        
+        label.caption {
+            color: #154360 !important;
+            padding: 4px 1px !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif !important;
+        }
+        
+        *>button {
+            border-radius: 3px !important;
+        }
+        /*.fas {
+                font-size: 16px !important;
+                margin-left: 5px !important;
+            }*/
+        
+        form {
+            margin-left: 5px !important;
+            margin-right: 5px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <menu>
+            <ul>
+                <li>
+                    <a href="/marketing/" class=""><i class='fas fa-poll'></i> Marketing </a>
+
+                    <ul>
+                        <li><a href="/marketing/folders/" class=""><i class='fas fa-layer-group'></i> <span>Groups</span></a></li>
+                        <li><a href="/marketing/adkeys/" class=""><i class='fas fa-ad'></i> <span>Adkeys</span></a></li>
+                        <li><a href="/marketing/invalidadkeys/" class=""><i class='far fa-window-close'></i> <span>Invalid Adkeys</span></a></li>
+                        <li><a href="/marketing/phones/" class=""><i class='fas fa-phone'></i> <span>Phones</span></a></li>
+                        <li><a href="/marketing/leads/" class=""><i class='fas fa-trophy'></i> <span>Leads</span></a></li>
+                        <li><a href="/marketing/chatleads/" class=""><i class='fas fa-cog'></i> <span>Chat Leads</span></a></li>
+                        <li><a href="/marketing/adkeysaudit/" class=""><i class='fab fa-adversal'></i> <span>AdKeys Audit</span></a></li>
+                        <li><a href="/marketing/reports/" class=""><i class='fas fa-flag-checkered'></i> <span>Reports</span></a></li>
+                        <li><a href="/marketing/conversioncodes/" class=""><i class='fas fa-cog'></i> <span>Conversion Codes</span></a></li>
+                    </ul>
+
+
+
+                </li>
+                <li>
+                    <a href="/cms/" class=""><i class='fas fa-pen-square'></i> CMS </a>
+
+                    <ul>
+                        <li><a href="/cms/pages/" class=""><i class='far fa-file'></i> <span>Pages</span></a></li>
+                        <li><a href="/cms/events/" class=""><i class='far fa-calendar-alt'></i> <span>Events</span></a></li>
+                        <li><a href="/cms/news/" class=""><i class='fas fa-file-alt'></i> <span>News</span></a></li>
+                        <li><a href="/cms/newsletters/" class=""><i class='far fa-newspaper'></i> <span>Newsletters</span></a></li>
+                        <li><a href="/cms/templates/" class=""><i class='fas fa-folder-open'></i> <span>Templates</span></a></li>
+                        <li><a href="/cms/includes/" class=""><i class='fas fa-file-import'></i> <span>Includes</span></a></li>
+                        <li><a href="/cms/reviews/" class=""><i class='fas fa-pencil-alt'></i> <span>Reviews</span></a></li>
+                        <li><a href="/cms/files/" class=""><i class='fas fa-file-upload'></i> <span>Files</span></a></li>
+                        <li><a href="/cms/redirects/" class=""><i class='fas fa-exchange-alt'></i> <span>Redirects</span></a></li>
+                        <li><a href="/cms/subdomains/" class=""><i class='fas fa-atlas'></i> <span>Subdomains</span></a></li>
+                    </ul>
+
+
+
+                </li>
+                <li>
+                    <a href="/academics/" class="selected"><i class='fas fa-chalkboard-teacher'></i> Academics </a>
+
+                    <ul>
+                        <li><a href="/academics/programs/" class=""><i class='fas fa-project-diagram'></i> <span>Programs</span></a></li>
+                        <li><a href="/academics/courses/" class=""><i class='fas fa-chalkboard-teacher'></i> <span>Courses</span></a></li>
+                        <li><a href="/academics/campuses/" class="selected"><i class='fas fa-cog'></i> <span>Campuses</span></a></li>
+                        <li><a href="/academics/tvs/" class=""><i class='fas fa-tv'></i> <span>TVs</span></a></li>
+                    </ul>
+
+
+
+                </li>
+            </ul>
+        </menu>
+        <div class="portal"><i class="fas fa-user-alt" style="font-size: 1.6em;"></i> System User
+            <div class="slide">
+
+                ▼ System User
+                <a class="leave" href="https://www.mybackpanel.loc"><i class="fas fa-sign-out-alt"></i> Leave Colleg&#232; CDI</a>
+            </div>
+        </div>
+    </header>
+    <div class="header-top-line"></div>
+    <a href="/" class="logo" style="background-image: url(/utility/files/panel/logos/collegecdi.regular.png)"></a>
+    <aside>
+    </aside>
+
+
+    <h1>Update campus &quot;Vancouver&quot;</h1>
+    <div class="breadcrumbs"><a href="/">Main</a><span class="delimeter"></span>
+        <div class="category">Academics</div><span class="delimeter"></span>
+        <div class="category">Campuses</div>
+        <div class="clear-left"></div>
+    </div>
+    <div class="tools">
+        <div class="group" style="float:left;">
+            <button onclick="history.back()">↩ back</button>
+            <button onclick="ManageCampus.Submit(38004)">Save</button>
+        </div>
+        <button class="float-right" onclick="ManageCampus.Delete()">Delete Campus</button>
+        <div class="clear-both"></div>
+    </div>
+    <table class="info-4">
+        <tr>
+            <td>Province</td>
+            <td class="green" style="font: 20px/20px Impact, sans-serif;">Colombie-Britannique</td>
+        </tr>
+    </table>
+    <div class="form">
+        <form>
+            <div style="display: inline-block;">
+                <label class="caption">Name<span class="required">*</span></label>
+                <input type="text" name="Name" placeholder="Campus name..." value="Vancouver" style="width: 200px;" />
+                <br />
+                <label for="Name" class="error"></label> &nbsp;
+            </div>
+
+            <div class="info-strip">
+                <label class="caption"> Region<span class="required">*</span></label>
+
+                <select name="Region" style="font: 14px Arial, sans-serif; padding: 5px;">
+                    <option value="">SELECT</option>
+                        <option value="1" >AB North</option>
+                        <option value="2" >AB South</option>
+                        <option value="4" >Art and Design</option>
+                        <option value="5" >BC</option>
+                        <option value="7" >Central</option>
+                        <option value="8" >Online</option>
+                        <option value="9" >PCU</option>
+                        <option value="10" >Quebec</option>
+                </select>
+                <label class="error" for="Region"></label>
+            </div>
+
+            <div style="display: inline-block;">
+                <label class="caption">Phone Number<span class="required">*</span></label>
+                <input type="text" name="PhoneNumber" placeholder="Campus number..." value="604 685 8585" style="width: 300px;" required />
+                <br />
+                <label for="PhoneNumber" class="error"></label> &nbsp;
+            </div>
+
+
+            <div style="display: inline-block;">
+                <label class="caption">Campus ID<span class="required">*</span></label>
+                <input type="text" placeholder="ID..." name="CampusID" value="38004" maxlength="10" style="width: 80px;" />
+                <br />
+                <label for="CampusID" class="error"></label> &nbsp;
+            </div>
+            <div style="display: inline-block;">
+                <label class="caption">Active?</label>
+                <div class="checkbox"><input type="checkbox" value="true" name="Active" id="Active" checked /><label for="Active"></label></div><br />
+            </div>
+            <div style="display:block;">
+                <label class="caption">Browser Title<span class="required">*</span></label>
+                <input type="text" placeholder="Browser title..." name="BrowserTitle" value="Coll&#232;ge CDI  | Colombie-Britannique |  Campus de  Vancouver | Campus" style="width: 99.5%;" />
+                <label for="BrowserTitle" class="error"></label>
+            </div>
+
+            <script>
+                $("td[class='assigned movable']").html("")
+            </script>
+            <script>
+                $("td[class='assigned movable']").html("")
+            </script>
+            <label for="DescriptionShort" class="caption">Short Description<span class="required">*</span><label for="DescriptionShort" class="error"></label></label>
+            <div class="caption" onmouseout="javascript: document.getElementById('DescriptionShort').value = CKEDITOR.instances.editor_DescriptionShort.getData();  ">
+                <div id="editor_DescriptionShort" name="DescriptionShort">
+                    <p>test</p>
+                </div>
+                <div><input name="DescriptionShort" id="DescriptionShort" type="hidden" class="richarea-value" value="  " /></div>
+                <script type="text/javascript">
+                    CKInatanceNumber = 'DescriptionShort';
+                    CKWordCount = -1;
+                    initEditor();
+                </script>
+                <script>
+                    document.getElementById('DescriptionShort').value = CKEDITOR.instances.editor_DescriptionShort.getData();
+                </script>
+            </div>
+
+            <label class="caption description">Description<span class="required">*</span>&nbsp;<label for="Description" class="error"></label></label>
+            <div class="caption" onmouseout="javascript: document.getElementById('Description').value = CKEDITOR.instances.editor_Description.getData();  ">
+                <div id="editor_Description" name="Description">
+                    <p>Situé au cœur du centre-ville, le&nbsp;Campus CDI&nbsp;de Vancouver&nbsp;est à quelques minutes du quartier des affaires animé de la ville, et à proximité du front de mer pittoresque.</p>
+
+                    <div>&nbsp;</div>
+
+                    <div>En traversant simplement la rue, les étudiants pourront découvrir le centre commercial Pacific Centre, ou ils trouveront une aire de restauration, des commerces et magasins, guichets automatiques et téléphones publics.Les cafés, restaurants
+                        et bars locaux sont également accessibles à pied du Campus de Vancouver.</div>
+
+                    <div>&nbsp;</div>
+
+                    <div>Situé au pied des majestueuses montagnes du littoral du Pacifique, Vancouver attire à longueur d'année des milliers de voyageurs venus du monde entier pour son paysage spectaculaire et son dynamisme culturel.Notre Campus&nbsp;est idéalement
+                        situé dans une zone qui offre des commodités modernes et un accès facile à la nature.&nbsp;<strong>Le magnifique Parc Stanley, joyau de la ville de Vancouver, est à proximité du Campus</strong> si vous désirez une promenade rafraichissante
+                        autour du célèbre Sea-Wall pour une bouffée d'air océanique.</div>
+                </div>
+                <div><input name="Description" id="Description" type="hidden" class="richarea-value" value="  " /></div>
+                <script type="text/javascript">
+                    CKInatanceNumber = 'Description';
+                    CKWordCount = -1;
+                    initEditor();
+                </script>
+                <script>
+                    document.getElementById('Description').value = CKEDITOR.instances.editor_Description.getData();
+                </script>
+            </div>
+
+
+            <div class="form" style="width: 395px; display: inline-block; vertical-align: top; margin-right: 10px;">
+                <label class="caption">Directions<span class="required">*</span>&nbsp;<label for="Directions" class="error"></label></label>
+                <div class="caption" onmouseout="javascript: document.getElementById('Directions').value = CKEDITOR.instances.editor_Directions.getData();  ">
+                    <div id="editor_Directions" name="Directions">L'emplacement du&nbsp;Collège CDI&nbsp;à Vancouver est&nbsp;facilement accessible par transport en commun - situé à quelques pâtés de maisons de plusieurs stations du SkyTrain&nbsp;et de nombreuses lignes de bus de centre-ville.</div>
+                    <div><input name="Directions" id="Directions" type="hidden" class="richarea-value" value="  " /></div>
+                    <script type="text/javascript">
+                        CKInatanceNumber = 'Directions';
+                        CKWordCount = -1;
+                        initEditor();
+                    </script>
+                    <script>
+                        document.getElementById('Directions').value = CKEDITOR.instances.editor_Directions.getData();
+                    </script>
+                </div>
+            </div>
+            <div class="form" style="width: 400px; display: inline-block; vertical-align: top;">
+                <label class="caption">Address<span class="required">*</span>&nbsp;<label for="Address" class="error"></label></label>
+                <div class="caption" onmouseout="javascript: document.getElementById('Address').value = CKEDITOR.instances.editor_Address.getData();  ">
+                    <div id="editor_Address" name="Address"><b>Addresse:</b>
+                        <div>710-626 West Pender St.</div>
+                        <div>Vancouver, C.-B.&nbsp;</div>
+                        <div>V6B 1V9</div>
+                    </div>
+                    <div><input name="Address" id="Address" type="hidden" class="richarea-value" value="  " /></div>
+                    <script type="text/javascript">
+                        CKInatanceNumber = 'Address';
+                        CKWordCount = -1;
+                        initEditor();
+                    </script>
+                    <script>
+                        document.getElementById('Address').value = CKEDITOR.instances.editor_Address.getData();
+                    </script>
+                </div>
+            </div>
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Campus Image 1000X1000<span class="required">*</span></label>
+                <div class="filearea"> <button title="Select file" onclick="Files.Root='/files/pages/campuses/';Files.OpenPopup(this);return false;">Select file</button> <button title="Remove" class="remove-button" style="display:none" onclick="Files.RemoveFile(this);return false;">Remove</button>
+                    <div class="file-area">No file selected...</div> <input type="hidden" id="ImageCampus" name="ImageCampus" value="" /></div>
+                <label for="ImageCampus" class="error"></label>
+            </div>
+
+
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Map 1400X500<span class="required">*</span></label>
+                <div class="filearea"> <button title="Select file" onclick="Files.Root='/files/pages/campuses/';Files.OpenPopup(this);return false;">Select file</button> <button title="Remove" class="remove-button" style="display:block" onclick="Files.RemoveFile(this);return false;">Remove</button>
+                    <div class="file-area"><a href="/files/pages/campuses/maps/vancouver.png" target="_blank" title="Click to view in full size">/files/pages/campuses/maps/vancouver.png<br /><img src="/files/pages/campuses/maps/vancouver.png"  /><br /><small>Actual size of uploaded image is  1471 X 426</small></a></div>
+                    <input type="hidden" id="Map" name="Map" value="/files/pages/campuses/maps/vancouver.png" /></div>
+                <label for="Map" class="error"></label>
+            </div>
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Map URL<span class="required">*</span></label>
+                <input type="text" name="MapUrl" placeholder="Map URL..." value="https://www.google.com/maps/place/CDI+College+-+Vancouver/@49.2841681,-123.1151718,19z/data=!3m1!4b1!4m2!3m1!1s0x54867182744ae1d1:0xcc30c7c61cebbb2a?hl=fr-FR" style="width: 90%;" />
+                <label for="MapUrl" class="error"></label>
+            </div>
+
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Things to do</label>
+                <div class="caption" onmouseout="javascript: document.getElementById('ThingsToDo').value = CKEDITOR.instances.editor_ThingsToDo.getData();  ">
+                    <div id="editor_ThingsToDo" name="ThingsToDo">L'une des meilleures choses à propos de Vancouver est le nombre infini de choses à faire dans cette ville. En plus de sa beauté naturelle, Vancouver a une réserve inépuisable d'activités à faire et de lieux à visiter, peu importe l'heure
+                        du jour ou de l'année. Beau temps mauvais temps, à l'intérieur et à l'extérieur, il y a beaucoup à voir et à faire à Vancouver.
+                        <div><br></div>
+                        <div>Vancouver abrite certains des plus beaux parcs et jardins en Amérique du Nord. Faites le tour de la digue de Stanley Park à pied, en vélo ou en roller, et admirez cet espace vert de 1001 hectares. Les randonneurs peuvent parcourir
+                            les sentiers et découvrir les nombreux jardins, monuments et plages que présente le parc. Les cyclistes bénéficient également des chemins et sentiers de Pacific Spirit Regional Park. Les magnifiques jardins de la reine Elizabeth
+                            Park ne sont que l'une des raisons pour visiter ce parc urbain. Reposez-vous au sommet de Little Mountain, le parc offre plusieurs vues magnifiques sur la ville, tandis que le Bloedel Floral Conservatory contient une vaste
+                            sélection de plantes et plusieurs espèces d'oiseaux tropicaux en vol libre.<br></div>
+                        <div><br></div>
+                        <div>Saviez-vous que Vancouver est entouré de près de 18 km de plages? Cela fait 18 kilomètres d'accès public au bord de l'eau ! Cela comprend dix sites océaniques côtiers ainsi que d'un lac d'eau douce. Les plages de Vancouver ont
+                            de quoi offrir à tout le monde, tels que: coins de sable pour profiter du soleil, de volley-ball de sable en plein air, des kiosques à rafraichissements lors d'une une journée chaude, et même des plages tranquilles où vous
+                            pouvez trouver un peu de solitude et lire un bon livre. Certains des endroits les plus populaires comprennent Kitsilano Beach, Jericho Beach, Locarno Beach, Spanish Banks et Sunset Beach. Pour ceux qui choisissent de rester
+                            au centre-ville, la première, deuxième et troisième plages sont idéales pour bronzer, nager et observer les gens. Belle Trout Lake, à quelques minutes à l'est de Commercial Drive, est beaucoup plus qu'un endroit idéal pour
+                            nager. Il y a des aires de jeux, de pique-nique et, surtout, un parking gratuit. Pour les plus aventureux, Wreck Beach, la plus importante plage naturiste du Canada, est située à proximité du campus de l'Université de la Colombie-Britannique.<br></div>
+                        <div><br></div>
+                        <div>Avec sa splendeur urbaine et sa beauté naturelle, Vancouver offre des activités illimitées. Etant entouré par les montagnes et l'océan donne à Vancouver un éventail d'activités d'uniques. Le vélo et le roller sont très populaires
+                            et sont d'excellents moyens pour découvrir la ville. Il y a de nombreuses pistes cyclables et des routes dans toute la région métropolitaine de Vancouver, y compris le Seawall dans le parc Stanley et autour de False Creek.<br></div>
+                        <div><br></div>
+                        <div>La région de Vancouver possède également des dizaines de terrains de golf, chacun entouré de paysages spectaculaires et verdoyants. Grâce au doux climat, les Vancouvérois peuvent apprécier le sport presque toute l'année. Un certain
+                            nombre de terrains ont été conçus pour accueillir des tournois de niveau professionnel et sont sûrs de fournir un défi à même le dévot des plus chevronnés.<br></div>
+                        <div><br></div>
+                        <div>Les hivers à Vancouver peuvent être légers par rapport aux autres villes canadiennes, mais la région offre les meilleures pistes de ski alpin, de snowboard et de ski de fond en Amérique du Nord. Chaque année, Grouse Mountain, Mount
+                            Seymour et Cypress attirent les résidents locaux et des visiteurs du monde entier. Les pistes de ski de renommée internationale Whistler et Blackcomb sont à deux heures de route de la ville.<br></div>
+                        <div><br></div>
+                        <div>Si vous aimez la navigation de plaisance et la pêche, Vancouver possède plusieurs entreprises de location qui vous aideront à explorer la côte et les voies navigables autour de la ville. La plupart de ces compagnies charter se
+                            trouvent sur l'île de Granville, Coal Harbour et la baie Horseshoe. Les amateurs de pêche doivent obtenir une licence pour la pêche en eau de mer et la pêche en eau douce. Les licences sont disponibles dans plusieurs lieux
+                            de la région du Grand Vancouver.<br></div>
+                        <div><br></div>
+                        <div>Vancouver offre également certains des meilleurs sports d'eau dans le monde. La plongée sous-marine en eau froide est très populaire au Cates Park à Deep Cove et Whytecliff Park, près de Horseshoe Bay. Des kayaks de mer sont souvent
+                            repérés sur Burrard Inlet, False Creek et Indian Arm. English Bay et Jericho Beach sont d'excellents endroits pour apprendre la planche à voile. Les amateurs d'aventure peuvent visiter les rivières Thompson, Nahatlatch, Squamish
+                            et Chilliwack, facilement accessibles en voiture, pour une journée passionnante de rafting en eau vive.<br></div>
+                        <div><br></div>
+                        <div>Les eaux côtières au large de Vancouver fourniront quelques-uns des sites les plus spectaculaires du monde. Les visiteurs et les habitants sont fascinés par la majesté de l'orca (ou épaulards) qui vivent le long de la côte du Pacifique
+                            ou les baleines grises et à bosse le long du Nord de leur route migratoire. Dauphins, lions de mer, phoques, loutres et aigles peuvent également être repérés le long du chemin.<br></div>
+                        <div><br></div>
+                        <div>Quand il s'agit d'arts et de culture, Vancouver offre beaucoup aux amateurs de spectacles en direct. Dans le magnifique théâtre Orpheum au centre ville, l'Orchestre Symphonique de Vancouver impressionne toujours le public chaque
+                            année avec un mélange soigneusement choisi de pièces classiques et contemporaines. Les amateurs de danse trouveront de nombreuses compagnies de danse dont les styles vont du ballet classique à la danse traditionnelle asiatique.<br></div>
+                        <div><br></div>
+                        <div>Les amateurs de théâtre ont également l'embarras du choix. Assistez à une comédie musicale, une comédie ou un drame produit par l'Arts Club Theatre Company. Voyez des pièces contemporaines et classiques mis en scène par la Vancouver
+                            Playhouse. Allez voir un spectacle de Broadway, au Centre de Vancouver pour les Arts de la Scène ou de petits spectacles dans des lieux plus intimes comme le Centre des Arts et à la caserne de pompiers ou au Centre Culturel
+                            de l'Est de Vancouver, simplement connu sous le nom Cultch. Les fans de l'improvisation sont invités à venir voir le Vancouver Sports Théâtre. Les nuits d'été à Vancouver sont généralement idéales pour le théâtre en plein air,
+                            tels que Bard on the Beach Shakespeare Festival dans le parc Vanier ou le théâtre sous les étoiles dans le parc Stanley. Chaque automne, la ville accueille le Vancouver International Fringe Festival sur Granville Island.<br></div>
+                        <div><br></div>
+                        <div>Les amateurs des concerts seront étonnés de la gamme de musique live que Vancouver peut offrir. Avec l'opéra et des concerts de musique classique au rock, les fans de tout genre peuventt trouver quelque chose à leur goût. Les salles
+                            vont de petits et moyens clubs, tels que le Commodore Ballroom et le Railway Club, aux grandes arènes, comme GM Place et le Pacific Coliseum.<br></div>
+                        <div><br></div>
+                        <div>La ville possède une multitude de galeries, grandes et petites, remplies d'art contemporain. Les habitants et les touristes affluent au Vancouver Art Gallery pour voir les dernières expositions, ainsi que des œuvres majeures de
+                            canadiens de renom et artistes britanno-colombiens.<br></div>
+                        <div><br></div>
+                        <div>De nombreuses pièces d'art autochtones sont exposées dans des galeries et des salles autour de la ville. Le Bill Reid Gallery of Northwest Coast Art met l'accent sur le travail des artistes du Nord-Ouest. Le Musée d'anthropologie
+                            d'UBC contient de nombreuses belles pièces ainsi que plusieurs mâts totémiques.<br></div>
+                        <div><br></div>
+                        <div>Vancouver a également un certain nombre d'expositions d'art public, y compris une installation changeante à l'espace du Vancouver Art Gallery, une exposition en plein air à l'Hôtel Shangri-La et de nombreuses pièces installées
+                            dans le cadre de la Biennale Internationale de Vancouver.</div>
+                    </div>
+                    <div><input name="ThingsToDo" id="ThingsToDo" type="hidden" class="richarea-value" value="  " /></div>
+                    <script type="text/javascript">
+                        CKInatanceNumber = 'ThingsToDo';
+                        CKWordCount = -1;
+                        initEditor();
+                    </script>
+                    <script>
+                        document.getElementById('ThingsToDo').value = CKEDITOR.instances.editor_ThingsToDo.getData();
+                    </script>
+                </div>
+            </div>
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Places to volunteer</label>
+                <div class="caption" onmouseout="javascript: document.getElementById('PlacesToVolunteer').value = CKEDITOR.instances.editor_PlacesToVolunteer.getData();  ">
+                    <div id="editor_PlacesToVolunteer" name="PlacesToVolunteer">
+                        <div>En plus de constituer un excellent moyen d’acquérir de l’expérience de travail et d'exercer vos talents aux profits d'une cause en laquelle vous croyez, le bénévolat représente une valeur ajoutée sur un CV. Peu importe le métier,
+                            les employeurs sont toujours à la recherche de candidats ayant des centres d’intérêt variés et un éventail de compétences qu’il est possible d’acquérir au moyen d’activités bénévoles. Voici quelques-unes des organisations des
+                            environs qui pourraient avoir besoin de votre aide :<br></div>
+                        <div><br></div>
+                        <div>
+                            <ul>
+                                <li><span style="line-height: 16px;">The Army Cadet League of Canada, BC Branch</span><br></li>
+                                <li><span style="line-height: 16px;">BC Pets and Friends Society</span><br></li>
+                                <li><span style="line-height: 16px;">The Boys and Girls' Clubs of Greater Vancouver Foundation</span><br></li>
+                                <li><span style="line-height: 16px;">British Columbia Civil Liberties Association</span><br></li>
+                                <li><span style="line-height: 16px;">The British Columbia Lions Society for Children with Disabilities</span><br></li>
+                                <li><span style="line-height: 16px;">British Columbia Society for the Prevention of Cruelty to Animals</span><br></li>
+                                <li><span style="line-height: 16px;">Camp Hornby Society</span><br></li>
+                                <li><span style="line-height: 16px;">Children's Arts Umbrella Foundation</span><br></li>
+                                <li><span style="line-height: 16px;">The Children's Family House Society of BC</span><br></li>
+                                <li><span style="line-height: 16px;">The Children's Foundation</span><br></li>
+                                <li><span style="line-height: 16px;">The Children's Rehabilitation and Cerebral Palsy Association</span><br></li>
+                                <li><span style="line-height: 16px;">Dr. Peter AIDS Foundation</span><br></li>
+                                <li><span style="line-height: 16px;">Easter Seal House Society</span><br></li>
+                                <li><span style="line-height: 16px;">Eastside Family Place Society</span><br></li>
+                                <li><span style="line-height: 16px;">Federation of Canadian Artists</span><br></li>
+                                <li><span style="line-height: 16px;">From Grief to Action Association of Families and Friends of Drug Users</span><br></li>
+                                <li><span style="line-height: 16px;">Giovanni Bastone Foundation</span><br></li>
+                                <li><span style="line-height: 16px;">Global Youth Fund Society</span><br></li>
+                                <li><span style="line-height: 16px;">Inspire Health Scoiety</span><br></li>
+                                <li><span style="line-height: 16px;">International Baccalaureate Fund Canada, Inc.</span><br></li>
+                                <li><span style="line-height: 16px;">The KidSafe Project Society</span><br></li>
+                                <li><span style="line-height: 16px;">Literacy BC Society</span><br></li>
+                                <li><span style="line-height: 16px;">Maverick Cat Coalition</span><br></li>
+                                <li><span style="line-height: 16px;">New Learning Society</span><br></li>
+                                <li><span style="line-height: 16px;">One to One Literacy Society</span><br></li>
+                                <li><span style="line-height: 16px;">Pangaea Arts Society</span><br></li>
+                                <li><span style="line-height: 16px;">Peace It Together Conflict Transformation Society</span><br></li>
+                                <li><span style="line-height: 16px;">People's Law School: The Public Legal Education Society</span><br></li>
+                                <li><span style="line-height: 16px;">Renew Crew Foundation</span><br></li>
+                                <li><span style="line-height: 16px;">The Shooting Stars Foundation</span><span style="line-height: 16px;">Time Rescue Society</span><br></li>
+                                <li><span style="line-height: 16px;">Society for Children and Youth of BC</span><br></li>
+                                <li><span style="line-height: 16px;">Take A Hike, Youth at Risk Foundation</span><br></li>
+                                <li><span style="line-height: 16px;">Urban Native Youth Association</span><br></li>
+                                <li><span style="line-height: 16px;">Vancouver AIDS Society</span><br></li>
+                                <li><span style="line-height: 16px;">The Vancouver East Cultural Centre</span><br></li>
+                                <li><span style="line-height: 16px;">The Vancouver Japanese Language School and Japanese Hall</span><br></li>
+                                <li><span style="line-height: 16px;">The Vancouver Life Drawing Society</span><br></li>
+                                <li><span style="line-height: 16px;">West Coast Leaf AssociationLawyers' Rights Watch (Legal Research) Canada</span><br></li>
+                                <li><span style="line-height: 16px;">Westend Community Centre Association</span><br></li>
+                                <li><span style="line-height: 16px;">Western Canadian Pediatric AIDS Society</span><br></li>
+                                <li><span style="line-height: 16px;">YMCA</span><br></li>
+                                <li><span style="line-height: 16px;">Youthco AIDS Society</span><br></li>
+                                <li><span style="line-height: 16px;">YWCA</span><br></li>
+                                <li><span style="line-height: 16px;">Zajac Ranch Society</span><br></li>
+                            </ul>
+                        </div>
+                        <div><br></div>
+                        <div><br></div>
+                    </div>
+                    <div><input name="PlacesToVolunteer" id="PlacesToVolunteer" type="hidden" class="richarea-value" value="  " /></div>
+                    <script type="text/javascript">
+                        CKInatanceNumber = 'PlacesToVolunteer';
+                        CKWordCount = -1;
+                        initEditor();
+                    </script>
+                    <script>
+                        document.getElementById('PlacesToVolunteer').value = CKEDITOR.instances.editor_PlacesToVolunteer.getData();
+                    </script>
+                </div>
+            </div>
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Image 1 1000X1000<span class="required">*</span></label>
+                <div class="filearea"> <button title="Select file" onclick="Files.Root='/files/pages/campuses/';Files.OpenPopup(this);return false;">Select file</button> <button title="Remove" class="remove-button" style="display:block" onclick="Files.RemoveFile(this);return false;">Remove</button>
+                    <div class="file-area"><a href="/files/pages/campuses/campusbg3.png" target="_blank" title="Click to view in full size">/files/pages/campuses/campusbg3.png<br /><img src="/files/pages/campuses/campusbg3.png"  /><br /><small>Actual size of uploaded image is  1830 X 1062</small></a></div>
+                    <input type="hidden" id="Image1" name="Image1" value="/files/pages/campuses/campusbg3.png" /></div>
+                <label for="Image1" class="error"></label>
+            </div>
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Image 2 1000X1000<span class="required">*</span></label>
+                <div class="filearea"> <button title="Select file" onclick="Files.Root='/files/pages/campuses/';Files.OpenPopup(this);return false;">Select file</button> <button title="Remove" class="remove-button" style="display:block" onclick="Files.RemoveFile(this);return false;">Remove</button>
+                    <div class="file-area"><a href="/files/pages/campuses/campusbg2.png" target="_blank" title="Click to view in full size">/files/pages/campuses/campusbg2.png<br /><img src="/files/pages/campuses/campusbg2.png"  /><br /><small>Actual size of uploaded image is  1830 X 1106</small></a></div>
+                    <input type="hidden" id="Image2" name="Image2" value="/files/pages/campuses/campusbg2.png" /></div>
+                <label for="Image2" class="error"></label>
+            </div>
+            <div class="form" style="display:block;background:#f2f2f2;">
+                <label class="caption">Image 3 1000X1000<span class="required">*</span></label>
+                <div class="filearea"> <button title="Select file" onclick="Files.Root='/files/pages/campuses/';Files.OpenPopup(this);return false;">Select file</button> <button title="Remove" class="remove-button" style="display:block" onclick="Files.RemoveFile(this);return false;">Remove</button>
+                    <div class="file-area"><a href="/files/pages/campuses/bc-2.jpg" target="_blank" title="Click to view in full size">/files/pages/campuses/bc-2.jpg<br /><img src="/files/pages/campuses/bc-2.jpg"  /><br /><small>Actual size of uploaded image is  1920 X 1080</small></a></div>
+                    <input type="hidden" id="Image3" name="Image3" value="/files/pages/campuses/bc-2.jpg" /></div>
+                <label for="Image3" class="error"></label>
+            </div>
+        </form>
+    </div>
+
+    <table style="width: 100%; background: #fafafa; border-bottom: 1px solid #ccc;">
+        <tr>
+            <td style="width: 50%; text-align: center;">
+                <h2>Campus programs</h2>
+            </td>
+            <td style="background: #ccc;">&nbsp;</td>
+            <td style="width: 50%; text-align: center;">
+                <h2>Add programs</h2>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;"><small>Click on a program to remove</small></td>
+            <td style="background: #ccc;">&nbsp;</td>
+            <td style="text-align: center;"><small>Click on a program to add to campus</small></td>
+        </tr>
+        <tr>
+            <td class="assigned movable" style="vertical-align: top;">
+                <div id="movable_12" onclick="ManageCampus.MoveProgram(this)">Administrateur de la comptabilit&#233; et de la paie<small>Associate name: <b>Comptabilit&#233;</b>, category <i>Administration</i></small></div>
+                <div id="movable_492" onclick="ManageCampus.MoveProgram(this)">Administrateur de la comptabilit&#233; et de la paie <small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_121" onclick="ManageCampus.MoveProgram(this)">Administrateur en syst&#232;me r&#233;seaux<small>Associate name: <b>Administration de r&#233;seaux</b>, category <i>Technologie</i></small></div>
+                <div id="movable_126" onclick="ManageCampus.MoveProgram(this)">Administrateur r&#233;seaux et bases de donn&#233;es<small>Associate name: <b> Administration de r&#233;seaux et bases de donn&#233;es</b>, category <i>Technologie</i></small></div>
+                <div id="movable_22" onclick="ManageCampus.MoveProgram(this)">Administration des affaires<small>Associate name: <b>Administration et gestion des affaires</b>, category <i>Administration</i></small></div>
+                <div id="movable_531" onclick="ManageCampus.MoveProgram(this)">Aide-&#233;ducateur<small>Associate name: <b></b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_89" onclick="ManageCampus.MoveProgram(this)">Assistant en pharmacie<small>Associate name: <b>Pharmacie</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_33" onclick="ManageCampus.MoveProgram(this)">Certificat - Sp&#233;cialiste de Microsoft Office<small>Associate name: <b>Administration</b>, category <i>Administration</i></small></div>
+                <div id="movable_40" onclick="ManageCampus.MoveProgram(this)">Certificat en h&#244;tellerie<small>Associate name: <b>H&#244;tellerie</b>, category <i>Administration</i></small></div>
+                <div id="movable_537" onclick="ManageCampus.MoveProgram(this)">D&#233;veloppement d&#39;applications mobiles<small>Associate name: <b></b>, category <i>Technologie</i></small></div>
+                <div id="movable_539" onclick="ManageCampus.MoveProgram(this)">D&#233;veloppement d&#39;applications Web et mobiles<small>Associate name: <b></b>, category <i>Technologie</i></small></div>
+                <div id="movable_541" onclick="ManageCampus.MoveProgram(this)">D&#233;veloppement Web<small>Associate name: <b></b>, category <i>Technologie</i></small></div>
+                <div id="movable_98" onclick="ManageCampus.MoveProgram(this)">Fondements de l’exercice du travail social<small>Associate name: <b>Services sociaux</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_510" onclick="ManageCampus.MoveProgram(this)">Gestion de la cha&#238;ne d&#39;approvisionnement<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_496" onclick="ManageCampus.MoveProgram(this)">Gestion des affaires et du marketing num&#233;rique<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_498" onclick="ManageCampus.MoveProgram(this)">Gestion des affaires et du marketing num&#233;rique avec placement coop&#233;ratif<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_41" onclick="ManageCampus.MoveProgram(this)">Gestion h&#244;teli&#232;re<small>Associate name: <b>H&#244;tellerie</b>, category <i>Administration</i></small></div>
+                <div id="movable_504" onclick="ManageCampus.MoveProgram(this)">Gestion h&#244;teli&#232;re avec placement coop&#233;ratif<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_119" onclick="ManageCampus.MoveProgram(this)">Ing&#233;nieur en syst&#232;mes r&#233;seaux<small>Associate name: <b>Administration de r&#233;seaux</b>, category <i>Technologie</i></small></div>
+                <div id="movable_508" onclick="ManageCampus.MoveProgram(this)">Marketing des m&#233;dias sociaux<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_506" onclick="ManageCampus.MoveProgram(this)">M&#233;dias sociaux et marketing Web<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_37" onclick="ManageCampus.MoveProgram(this)">Planificateur d’&#233;v&#233;nements<small>Associate name: <b>Planificateur d’&#233;v&#233;nements</b>, category <i>Administration</i></small></div>
+                <div id="movable_72" onclick="ManageCampus.MoveProgram(this)">Pr&#233;pos&#233; aux b&#233;n&#233;ficiaires<small>Associate name: <b>Sant&#233;, assistance et soins</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_500" onclick="ManageCampus.MoveProgram(this)">Principes fondamentaux des affaires et de l&#39;h&#244;tellerie avec placement coop&#233;ratif<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_32" onclick="ManageCampus.MoveProgram(this)">Services h&#244;teliers<small>Associate name: <b>H&#244;tellerie</b>, category <i>Administration</i></small></div>
+                <div id="movable_44" onclick="ManageCampus.MoveProgram(this)">Sp&#233;cialiste de la paie et des imp&#244;ts<small>Associate name: <b>Comptabilit&#233;</b>, category <i>Administration</i></small></div>
+                <div id="movable_26" onclick="ManageCampus.MoveProgram(this)">Sp&#233;cialiste des applications de gestion informatis&#233;es<small>Associate name: <b>Administration et gestion des affaires</b>, category <i>Administration</i></small></div>
+                <div id="movable_533" onclick="ManageCampus.MoveProgram(this)">Sp&#233;cialiste en cybers&#233;curit&#233;<small>Associate name: <b></b>, category <i>Technologie</i></small></div>
+                <div id="movable_535" onclick="ManageCampus.MoveProgram(this)">Sp&#233;cialiste en soutien des syst&#232;mes d’information<small>Associate name: <b></b>, category <i>Technologie</i></small></div>
+                <div id="movable_128" onclick="ManageCampus.MoveProgram(this)">Technicien en soutien informatique<small>Associate name: <b>Soutien technique</b>, category <i>Technologie</i></small></div>
+                <div id="movable_47" onclick="ManageCampus.MoveProgram(this)">Tourisme et voyages<small>Associate name: <b>Tourisme et voyages</b>, category <i>Administration</i></small></div>
+                <div id="movable_513" onclick="ManageCampus.MoveProgram(this)">Travailleur des services communautaires<small>Associate name: <b></b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_144" onclick="ManageCampus.MoveProgram(this)">Travailleur des services sociaux – Professionnel<small>Associate name: <b>Services sociaux</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_101" onclick="ManageCampus.MoveProgram(this)">Travailleur des services sociaux sp&#233;cialis&#233; dans la jeunesse<small>Associate name: <b>Services sociaux</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_100" onclick="ManageCampus.MoveProgram(this)">Travailleur des services sociaux sp&#233;cialis&#233; dans le r&#233;tablissement des personnes<small>Associate name: <b>Services sociaux</b>, category <i>Soins de sant&#233;</i></small></div>
+            </td>
+            <td style="background: #ccc;"></td>
+            <td class="others movable" style="vertical-align: top;">
+                <div id="movable_96" onclick="ManageCampus.MoveProgram(this)">Acc&#232;s &#224; la profession d’infirmier auxiliaire<small>Associate name: <b>Infirmier et soins infirmiers</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_82" onclick="ManageCampus.MoveProgram(this)">Adjoint administratif en cabinet m&#233;dical<small>Associate name: <b>Administration en cabinet m&#233;dical</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_74" onclick="ManageCampus.MoveProgram(this)">Adjoint administratif en cabinet m&#233;dical – Pratique avanc&#233;e<small>Associate name: <b>Administration en cabinet m&#233;dical</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_511" onclick="ManageCampus.MoveProgram(this)">Administration de cabinet dentaire - Sp&#233;cialisation en radiographie <small>Associate name: <b></b>, category <i>Soins dentaires</i></small></div>
+                <div id="movable_103" onclick="ManageCampus.MoveProgram(this)">Aide-v&#233;t&#233;rinaire<small>Associate name: <b>Aide-v&#233;t&#233;rinaire</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_56" onclick="ManageCampus.MoveProgram(this)">Assistance dentaire<small>Associate name: <b>Assistance dentaire </b>, category <i>Soins dentaires</i></small></div>
+                <div id="movable_75" onclick="ManageCampus.MoveProgram(this)">Assistance en laboratoire m&#233;dical<small>Associate name: <b>Assistance en laboratoire m&#233;dical</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_114" onclick="ManageCampus.MoveProgram(this)">Assistant administratif en milieu juridique<small>Associate name: <b>Formation juridique</b>, category <i>&#201;tudes juridiques</i></small></div>
+                <div id="movable_516" onclick="ManageCampus.MoveProgram(this)">Assistant administratif m&#233;dico-dentaire<small>Associate name: <b></b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_522" onclick="ManageCampus.MoveProgram(this)">Assistant aux soins v&#233;t&#233;rinaires<small>Associate name: <b></b>, category <i>Soins dentaires</i></small></div>
+                <div id="movable_97" onclick="ManageCampus.MoveProgram(this)">Assistant de l&#39;ergoth&#233;rapeute et assistant du physioth&#233;rapeute<small>Associate name: <b>Assistant physioth&#233;rapie</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_520" onclick="ManageCampus.MoveProgram(this)">Assistant en r&#233;adaptation<small>Associate name: <b></b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_518" onclick="ManageCampus.MoveProgram(this)">Assistant m&#233;dico-pharmacie<small>Associate name: <b></b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_87" onclick="ManageCampus.MoveProgram(this)">Certificat - Administration en cabinet m&#233;dical<small>Associate name: <b>Administration en cabinet m&#233;dical</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_17" onclick="ManageCampus.MoveProgram(this)">Certificat en comptabilit&#233;<small>Associate name: <b>Comptabilit&#233;</b>, category <i>Administration</i></small></div>
+                <div id="movable_155" onclick="ManageCampus.MoveProgram(this)">Comptabilit&#233; informatis&#233;e <small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_524" onclick="ManageCampus.MoveProgram(this)">Consultant en immigration<small>Associate name: <b></b>, category <i>&#201;tudes juridiques</i></small></div>
+                <div id="movable_526" onclick="ManageCampus.MoveProgram(this)">Consultant en immigration avec stage<small>Associate name: <b></b>, category <i>&#201;tudes juridiques</i></small></div>
+                <div id="movable_59" onclick="ManageCampus.MoveProgram(this)">Coordonnateur de la r&#233;ception en cabinet dentaire<small>Associate name: <b>R&#233;ception en cabinet dentaire  </b>, category <i>Soins dentaires</i></small></div>
+                <div id="movable_632" onclick="ManageCampus.MoveProgram(this)">Coordonnateur des ressources humaines et de la paie <small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_58" onclick="ManageCampus.MoveProgram(this)">Denturologiste<small>Associate name: <b>Denturologiste</b>, category <i>Soins dentaires</i></small></div>
+                <div id="movable_7" onclick="ManageCampus.MoveProgram(this)">Design graphique<small>Associate name: <b>Design graphique</b>, category <i>Art et design</i></small></div>
+                <div id="movable_529" onclick="ManageCampus.MoveProgram(this)">Dipl&#244;me en &#233;ducation de la petite enfance<small>Associate name: <b></b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_54" onclick="ManageCampus.MoveProgram(this)">&#201;ducation de la petite enfance<small>Associate name: <b>&#201;ducation &#224; l&#39;enfance</b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_50" onclick="ManageCampus.MoveProgram(this)">&#201;ducation de la petite enfance – Perfectionnement<small>Associate name: <b>&#201;ducation de la petite enfance – Perfectionnement</b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_52" onclick="ManageCampus.MoveProgram(this)">&#201;ducation de la petite enfance – Perfectionnement (Sp&#233;cialis&#233; &#224; l’int&#233;gration des enfants ayant des besoins particuliers)<small>Associate name: <b>&#201;ducation de la petite enfance – Perfectionnement</b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_51" onclick="ManageCampus.MoveProgram(this)">&#201;ducation de la petite enfance – Perfectionnement (Sp&#233;cialis&#233; aupr&#232;s de nourrissons et de tout-petits)<small>Associate name: <b>&#201;ducation de la petite enfance – Perfectionnement</b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_146" onclick="ManageCampus.MoveProgram(this)">&#201;ducation de la petite enfance : enfants ayant des besoins particuliers<small>Associate name: <b>&#201;ducation de la petite enfance – Perfectionnement</b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_145" onclick="ManageCampus.MoveProgram(this)">&#201;ducation de la petite enfance : nourrissons et tout-petits<small>Associate name: <b>&#201;ducation de la petite enfance – Perfectionnement</b>, category <i>&#201;ducation &#224; l&#39;enfance</i></small></div>
+                <div id="movable_115" onclick="ManageCampus.MoveProgram(this)">&#201;lectricien – Construction et entretien<small>Associate name: <b>&#201;lectricien – Construction et entretien</b>, category <i>Apprentissage et m&#233;tiers</i></small></div>
+                <div id="movable_105" onclick="ManageCampus.MoveProgram(this)">Fondements du maintien de l’ordre<small>Associate name: <b>Maintien de l&#39;ordre</b>, category <i>&#201;tudes juridiques</i></small></div>
+                <div id="movable_68" onclick="ManageCampus.MoveProgram(this)">Formation avanc&#233;e en orthodontie<small>Associate name: <b>Assistance dentaire </b>, category <i>Soins dentaires</i></small></div>
+                <div id="movable_502" onclick="ManageCampus.MoveProgram(this)">Gestion de la cha&#238;ne d&#39;approvisionnement mondiale et commerce international<small>Associate name: <b></b>, category <i>Administration</i></small></div>
+                <div id="movable_30" onclick="ManageCampus.MoveProgram(this)">Gestion des affaires<small>Associate name: <b>Administration et gestion des affaires</b>, category <i>Administration</i></small></div>
+                <div id="movable_94" onclick="ManageCampus.MoveProgram(this)">Infirmier auxiliaire<small>Associate name: <b>Infirmier et soins infirmiers</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_76" onclick="ManageCampus.MoveProgram(this)">Massoth&#233;rapeute qualifi&#233;<small>Associate name: <b>Massoth&#233;rapie</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_21" onclick="ManageCampus.MoveProgram(this)">Sp&#233;cialiste des applications de gestion informatis&#233;es - Comptabilit&#233;<small>Associate name: <b>Comptabilit&#233;</b>, category <i>Administration</i></small></div>
+                <div id="movable_149" onclick="ManageCampus.MoveProgram(this)">Sp&#233;cialiste en r&#233;daction et en conception assist&#233;e par ordinateur <small>Associate name: <b></b>, category <i>Art et design</i></small></div>
+                <div id="movable_57" onclick="ManageCampus.MoveProgram(this)">Technicien dentaire<small>Associate name: <b>Technologie dentaire</b>, category <i>Soins dentaires</i></small></div>
+                <div id="movable_93" onclick="ManageCampus.MoveProgram(this)">Technicien en pharmacie<small>Associate name: <b>Pharmacie</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_110" onclick="ManageCampus.MoveProgram(this)">Technicien juridique<small>Associate name: <b>Formation juridique</b>, category <i>&#201;tudes juridiques</i></small></div>
+                <div id="movable_543" onclick="ManageCampus.MoveProgram(this)">Technologie du design graphique<small>Associate name: <b></b>, category <i>Art et design</i></small></div>
+                <div id="movable_514" onclick="ManageCampus.MoveProgram(this)">Th&#233;rapie par le spa<small>Associate name: <b></b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_64" onclick="ManageCampus.MoveProgram(this)">Travailleur des services communautaires<small>Associate name: <b>Sant&#233;, assistance et soins</b>, category <i>Soins de sant&#233;</i></small></div>
+                <div id="movable_157" onclick="ManageCampus.MoveProgram(this)">Travailleur des services communautaires sp&#233;cialis&#233; en toxicomanie <small>Associate name: <b></b>, category <i>Soins de sant&#233;</i></small></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;"><small>&nbsp;</small></td>
+            <td style="background: #ccc;">&nbsp;</td>
+            <td style="text-align: center;"><small>&nbsp;</small></td>
+        </tr>
+    </table>
+
+
+
+
+    <div class="popup-with-close-option">
+        <div>
+            <div class="popup-close"></div>
+            <div class="popup-body"></div>
+        </div>
+    </div>
+    <div class="popup-confirmation">
+        <div>
+            <div class="popup-body"></div>
+        </div>
+    </div>
+    <div class="popup-notification">
+        <div class="popup-body"></div>
+    </div>
+    <div class="popup-process">
+        <div></div>
+    </div>
+
+    <script src="/utility/files/libs/jquery/jquery-ui-1.10.4.js"></script>
+    <script src="/utility/files/libs/jquery/jquery.cookie.js"></script>
+    <script src="/utility/files/libs/fileuploader/fileuploader.js"></script>
+    <script src="/utility/files/panel/screen.js"></script>
+    <script src="/utility/files/libs/common/querystring.js"></script>
+    <script src="/utility/files/libs/common/input-lower-case-or-dash.js"></script>
+    <script src="/utility/files/libs/rangy/rangy-core.js"></script>
+    <script src="/utility/files/libs/rangy/rangy-selectionsaverestore.js"></script>
+
+
+
+    <script type="text/javascript" src="/files/backpanel/scripts/academics.campuses.js"></script>
+    <section class="popup-templates">
+        <div class="add-link">
+            <h1>Add Link</h1> <label class="caption">URL<label class="required">*</label></label> <input class="add-link-url" type="text" placeholder="Link URL" /> <label class="add-link-url-error error"></label> <label class="caption">Open in:</label>
+            <select class="add-link-target">
+                <option value="0">Same Window</option>
+                <option value="1">New Window</option>
+                </select> <input type="button" class="button" value="Add"> </div>
+        <div class="select-file"></div>
+    </section>
+
+    <!-- Visual Studio Browser Link -->
+    <script type="text/javascript" src="https://localhost:44399/5f6a83f159404dfe8bd95a406d287b61/browserLink" async="async" id="__browserLink_initializationData" data-requestId="7c56fae8d06b45ff88f9182bf4ec2fa6" data-appName="Chrome"></script>
+    <!-- End Browser Link -->
+
+</body>
+
+</html>

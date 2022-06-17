@@ -1,0 +1,38 @@
+/*
+    Avoid CLS in fonts
+    https://simonhearne.com/2021/layout-shifts-webfonts/#implementing-f-mods
+    https://fontdrop.info/
+*/
+@font-face {
+    font-family: Catamaran-fallback;
+    src: url("/fonts/Catamaran-Regular.woff2") format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: fallback-font;
+    src: local(Arial); /* required! */
+    ascent-override: 1100;
+    descent-override: -540;
+    line-gap-override: 0;
+    advance-override: 2494;
+}
+
+body {
+    font-family: Catamaran, Catamaran-fallback;
+    min-height: 1959px;
+}
+
+/*div#block__hero-img {
+    width: 466px;
+    height: 5px;
+}*/
+/*picture.hero-img {width: 450px; height: 250px;}*/
+div#block__hero-img {
+    width: 450px;
+    height: 250px;
+}
+div#img-tag-simple. div#container__img1, div#picture-tag-test1 {
+    width: 469px;
+    height 269px;
+}

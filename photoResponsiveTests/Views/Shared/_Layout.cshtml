@@ -4,17 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@*picture tag preload jumbo*@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @*<link rel="preload" href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap" as="font">
+        <link rel="stylesheet" media="print" onload="this.onload = null; this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap">*@
+    <link rel="preload" href="/fonts/Catamaran-Regular.woff2" as="font" type="woff2">
+    <link rel="stylesheet" media="print" onload="this.onload = null; this.removeAttribute('media');" href="/fonts/Catamaran-Regular.woff2">
+
+
+    @*picture tag preload jumbo*@
     <link rel="preload" as="image" href="https://via.placeholder.com/1800x1040.webp?text=jumbo-1800x1040+webp" media="(min-width: 1800px)" />
     <link rel="preload" as="image" href="https://via.placeholder.com/1500x844.webp?text=jumbo-1400x844+webp " media="(min-width: 1499px) and (max-width: 1799px)" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/1170x658.webp?text=jumbo-1170x658+webp" media="(min-width: 1169px) and (max-width: 1498px" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/970x545.webp?text=jumbo-970x545+webp" media="(min-width: 969px) and (max-width: 1168px" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/750x562.webp?text=jumbo-750x562+webp" media="(min-width: 749px) and (max-width: 968px" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/500x360.webp?text=jumbo-500x360+webp" media="(min-width: 499px) and (max-width: 748px" />
-    <link rel="preload" as="image" href=" https://via.placeholder.com/450x338.webp?text=jumbo-450x338+webp" media="(min-width: 400px) and (max-width: 498px" />
-    <link rel="preload" as="image" href=" https://via.placeholder.com/320x240.webp?text=jumbo-320x240+webp" media="(max-width: 399px)" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/450x338.webp?text=jumbo-450x338+webp" media="(min-width: 450px) and (max-width: 498px" />
+    <link rel="preload" as="image" href=" https://via.placeholder.com/320x240.webp?text=jumbo-320x240+webp" media="(max-width: 449px)" />
 
-@*picture tag preload in body*@
+    @*picture tag preload in body*@
     <link rel="preload" as="image" href="https://via.placeholder.com/1800x1040.webp?text=test1-1800x1040+webp" media="(min-width: 1800px)" />
     <link rel="preload" as="image" href="https://via.placeholder.com/1500x844.webp?text=test1-1400x844+webp " media="(min-width: 1499px) and (max-width: 1799px)" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/1170x658.webp?text=test1-1170x658+webp" media="(min-width: 1169px) and (max-width: 1498px" />
@@ -24,7 +32,58 @@
     <link rel="preload" as="image" href=" https://via.placeholder.com/450x338.webp?text=test1-450x338+webp" media="(min-width: 400px) and (max-width: 498px" />
     <link rel="preload" as="image" href=" https://via.placeholder.com/320x240.webp?text=test1-320x240+webp" media="(max-width: 399px)" />
 
+    <script>
+        @*let ImageContainer = document.querySelector('hero-img');
+        let width = ImageContainer.clientWidth;
+        let height = ImageContainer.clientHeight;
+        console.log(width);
+        console.log(height);*@
+    </script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
     <style>
+    </style>
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        html {
+            font-family: Arial, 'Catamaran', sans-serif;
+        }
+
         .jumbotron {
             position: relative;
             width: 100%;
@@ -65,42 +124,103 @@
             width: 10px;
             height: 10px;
         }
+
+        h1, h2 {
+            font-family: Arial, 'Catamaran', sans-serif;
+            transform: scale(1,1);
+            transform: translate(0%,0%);
+        }
+
+@*
+    Avoid CLS - use min-height on containers. Usually, div, h1, h2, h3, body, img
+    It seems like media queries need to be used to set width and height properties for div and img tags based on device to lower CLS metrics.
+    *@
+        #container__img1 {
+            min-height: 311px;
+            width: 100%;
+        }
+
+        #container__img1 > h2 {
+            min-height: 30px;
+            width: 100%;
+        }
+
+    @*Avoid CLS - https://www.smashingmagazine.com/2021/06/how-to-fix-cumulative-layout-shift-issues/ *@
+    @*h1 {min-height: 55px;}
+    h2 {min-height: 28px;}*@
+    @*div {min-height: 270px;}*@
+        @*img {
+            max-width: 100%;
+            height: auto;
+        }*@
     </style>
 
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <link rel="stylesheet" href="~/styles/main.css">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        @*let divBox = document.querySelector('#img-tag-simple');*@
+        let divBox = document.querySelector('#block__hero-img');
+        @*let divBox = document.querySelector('.hero-img');*@
+        let width = divBox.clientWidth;
+        let height = divBox.clientHeight;
+        console.log(divBox);
+        console.log("width: " + width + " height: " + height);
+
+        //document.getElementById("#img-tag-simple").style.width = width;
+
+        function init() {
+            var imgDefer = document.getElementsByTagName('img');
+            for (var i = 0; i < imgDefer.length; i++) {
+                if (imgDefer[i].getAttribute('data-src')) {
+                    imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+                }
+            }
+        }
+
+        window.onload = init;
+    </script>
+
+    <script>
+        @*let clsValue = 0;
+        let clsEntries = [];
+
+        let sessionValue = 0;
+        let sessionEntries = [];
+
+        new PerformanceObserver((entryList) => {
+            for (const entry of entryList.getEntries()) {
+                // Only count layout shifts without recent user input.
+                if (!entry.hadRecentInput) {
+                    const firstSessionEntry = sessionEntries[0];
+                    const lastSessionEntry = sessionEntries[sessionEntries.length - 1];
+
+                    // If the entry occurred less than 1 second after the previous entry and
+                    // less than 5 seconds after the first entry in the session, include the
+                    // entry in the current session. Otherwise, start a new session.
+                    if (sessionValue &&
+                        entry.startTime - lastSessionEntry.startTime < 1000 &&
+                        entry.startTime - firstSessionEntry.startTime < 5000) {
+                        sessionValue += entry.value;
+                        sessionEntries.push(entry);
+                    } else {
+                        sessionValue = entry.value;
+                        sessionEntries = [entry];
+                    }
+
+                    // If the current session value is larger than the current CLS value,
+                    // update CLS and the entries contributing to it.
+                    if (sessionValue > clsValue) {
+                        clsValue = sessionValue;
+                        clsEntries = sessionEntries;
+
+                        // Log the updated value (and its entries) to the console.
+                        console.log('CLS:', clsValue, clsEntries)
+                    }
+                }
+            }
+        }).observe({ type: 'layout-shift', buffered: true });*@
+
+    </script>
 </body>
+<script async defer src="https://<sub>.twic.pics/?v1"></script>
 </html>
